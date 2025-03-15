@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "Payvo",
   "private": true,
   "scripts": {
     "build": "turbo run build",
