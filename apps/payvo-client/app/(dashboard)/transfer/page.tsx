@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../lib/auth";
-import db from "@repo/db/client"
+import db from "@payvo/db/client";
 import AddMoneyCard from "../../../Components/AddMoneyCard";
 import BalanceCard from "../../../Components/BalanceCard";
 import OnRampTransaction from "../../../Components/OnRampTransaction";
