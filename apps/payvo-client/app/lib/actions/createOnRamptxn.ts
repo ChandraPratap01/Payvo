@@ -1,7 +1,7 @@
 "use server"
 import { getServerSession } from "next-auth"
 import { authOptions } from "../auth"
-import db from "@repo/db/client"
+import db from "@payvo/db/client"
 
 const createOnRamptxn = async (amount:number,provider:string) => {
     const session=await getServerSession(authOptions);
