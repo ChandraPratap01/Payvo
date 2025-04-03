@@ -1,23 +1,26 @@
-name:Build on PR
+name: Build on PR
 on:
   pull_request:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      -name: Copying repo
-      -uses: actions/checkout@v3
-      -name: Use nodejs
-      -uses:actions/setup/node@3
-       with:
-        node-version: '20'
-      -name: Install dependencies
-      -run: npm install
-      -name:Prisma Generate
-      -run:npm run db:generate
-      -name:Build
-      -run:npm run build
-    
-      
+      - name: Copying repo
+        uses: actions/checkout@v3
+
+      - name: Use nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Prisma Generate
+        run: npm run db:generate
+
+      - name: Build
+        run: npm run build
