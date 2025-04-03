@@ -1,5 +1,5 @@
 {
-  "name": "Payvo",
+  "name": "payvo",
   "private": true,
   "scripts": {
     "build": "turbo run build",
