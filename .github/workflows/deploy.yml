@@ -22,7 +22,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./Docker/Dockerfile  # Make sure your Dockerfile is at this path
+          file: ./Docker/Dockerfile.user  
           push: true
           tags: chandradkr/firstdemo:latest
 
