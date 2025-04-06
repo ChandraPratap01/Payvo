@@ -7,7 +7,8 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
-    "db:generate":"cd packages/DB && npx prisma generate && cd ../.."
+    "db:generate":"cd packages/DB && npx prisma generate && cd ../..",
+    "start-user":"cd ./apps/payvo-client && npm run start"
   },
   "devDependencies": {
     "prettier": "^3.5.3",
