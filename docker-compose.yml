@@ -12,7 +12,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
   app:
-    build: .
+    image: chandradkr/firstdemo:latest
     container_name: my_app
     depends_on:
       - db
