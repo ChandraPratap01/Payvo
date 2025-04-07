@@ -1,4 +1,6 @@
+#!/bin/sh
 
+# wait-for.sh db-host db-port timeout
 host="$1"
 port="$2"
 timeout="${3:-30}"
