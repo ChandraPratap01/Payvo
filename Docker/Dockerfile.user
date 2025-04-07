@@ -3,7 +3,9 @@ WORKDIR /app
 COPY package.json package-lock.json turbo.json ./
 COPY apps ./apps
 COPY packages ./packages
+COPY wait-for.sh /wait-for.sh
 RUN npm install
 RUN npm run db:generate
 RUN npm run build
-CMD ["npm","run","start-user"]
+RUN chmod +x /wait-for.sh
+CMD ["/bin/sh", "-c", "/wait-for.sh db 5432 30 && npx prisma migrate deploy && npm run start-user"]

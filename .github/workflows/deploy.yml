@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
-
+  
       - name: Log in to Dockerhub
         uses: docker/login-action@v2
         with:
@@ -28,3 +28,48 @@ jobs:
 
       - name: Verify Docker image
         run: docker pull chandradkr/firstdemo:latest
+
+      #  - name: Deploy to EC2
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #   host: ${{ secrets.SSH_HOST }}
+      #   username: ${{ secrets.SSH_USERNAME }}
+      #   key: ${{ secrets.SSH_KEY }}
+      #   script: |
+      #     sudo docker pull 100xdevs/web-app:latest
+      #     sudo docker stop web-app || true
+      #     sudo docker rm web-app || true
+      #     sudo docker run -d --name web-app -p 3005:3000 chandradkr/firstdemo:latest
+
+
+      # //Add nginx reverse proxy to forward requests from userapp.your_domain.com to port on which the app is running
+       
+       
+# server {
+#         server_name userapp.100xdevs.com;
+
+#         location / {
+#             proxy_pass http://localhost:3005;
+#             proxy_http_version 1.1;
+#             proxy_set_header Upgrade $http_upgrade;
+#             proxy_set_header Connection 'upgrade';
+#             proxy_set_header Host $host;
+#             proxy_cache_bypass $http_upgrade;
+
+
+#                 # Basic Authentication
+#                 auth_basic "Restricted Content";
+#                 auth_basic_user_file /etc/nginx/.htpasswd;
+#         }
+
+#     listen 443 ssl; # managed by Certbot
+#     ssl_certificate /etc/letsencrypt/live/userapp.100xdevs.com/fullchain.pem; # managed by Certbot
+#     ssl_certificate_key /etc/letsencrypt/live/userapp.100xdevs.com/privkey.pem; # managed by Certbot
+#     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+#     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+# }
+
+# ---------------------------Install certbot and Refresh certificate
+#                              sudo certbot --nginx
+
